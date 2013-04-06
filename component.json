@@ -1,0 +1,20 @@
+{
+  "name": "jquery.domActions",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/flesler/jquery.domActions",
+  "main": [
+    "./jquery.domActions.js",
+    "./jquery.domActions-min.js"
+  ],
+  "dependencies": {
+    "jquery": "*"
+  },
+  "keywords": [
+    "jquery", "dom", "html", "elements", "actions", "commands"
+  ],
+  "author": {
+    "name": "Ariel Flesler",
+    "web": "http://flesler.blogspot.com/"
+  }
+}

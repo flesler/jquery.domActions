@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>jQuery.domActions</title>
+  <link type="text/css" rel="stylesheet" href="style.css" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+  <script type="text/javascript" src="../jquery.domActions.js"></script>
+</head>
+<body>
+  <ul id="buttons">
+    <li data-action="say/hi">Say Hi</li>
+    <li data-action="pop/1">Remove last</li>
+    <li data-action="clear">Clear</li>
+    <li id="paintRed">Paint red</li>
+    <li id="paintBlue">Paint blue</li>
+    <li id="clearPaint">Clear paint</li>
+    <li id="off">Turn Off</li>
+    <li id="on">Turn On</li>
+  </ul>
+
+  <ul id="logs">
+  </ul>
+
+  <script type="text/javascript">
+  var logs = $('#logs');
+
+  // $.actions({ a:function(){} });
+  $.actions({
+    say:function(msg){
+      logs.append('<li>'+msg+'</li>');
+    },
+    clear:function() {
+      logs.children().remove();
+    }
+  });
+  
+  // $.actions('a', function(){ });
+  $.actions('paint', function(color){
+    logs.css('background-color', color || '');
+  });
+
+  // $.actions(function(action, args){ });
+  $.actions(function(action, args){
+    if (action === 'pop') {
+      var count = args[0];
+      logs.children().slice(-count).remove();
+    } else {
+      throw new Error('unhandled action: '+action);
+    }
+  });
+
+  // $.actions('a', [1,2,3]);
+  $('#paintBlue').actions('paint', ['#0000FF']);
+  // $.actions('a', 1);
+  $('#paintRed').actions('paint', '#FF0000');
+  // $.actions('a');
+  $('#clearPaint').actions('paint');
+
+  // $.actions(null);
+  $('#off').click(function(){ $.actions(null); });
+  // $.actions();
+  $('#on').click(function(){ $.actions(); });
+
+  // TODO: $.actions('a', null);
+  </script>
+</body>
+</html>
