@@ -1,0 +1,29 @@
+body {
+  overflow: hidden;
+  padding-left:15px;
+}
+
+ul {
+  overflow:hidden;
+  padding:0;
+}
+
+li {
+  list-style: none;
+  float: left;
+}
+
+div {
+  cursor: pointer;
+  background: #CCC;
+  border: 1px solid black;
+  text-align: center;
+  padding:5px;
+  float:left;
+  margin:0 10px;
+}
+
+div.busy {
+  background: red;
+  pointer-events: none;
+}

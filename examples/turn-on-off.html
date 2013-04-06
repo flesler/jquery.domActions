@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>jQuery.domActions - Turn on and off</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+  <script type="text/javascript" src="../jquery.domActions.js"></script>
+</head>
+<body>
+  <h1>Turn off actions</h1>
+  <div data-action="say/hi">Say Hi</div>
+  <div id="off">Turn off</div>
+  <div id="on">Turn on</div>
+
+  <script type="text/javascript">
+  $.actions('say', function(msg){
+    alert(msg);
+  });
+
+  $('#off').click(function(){
+    $.actions(null);
+  });
+  $('#on').click(function(){
+    $.actions();
+  });
+  </script>
+</body>
+</html>

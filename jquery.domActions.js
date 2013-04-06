@@ -6,9 +6,12 @@
  * @author Ariel Flesler
  * @version 0.1.0
  */
- 
 ;(function( $ ){
 	
+	// TODOs:
+	// maybe event {action} can preventDefault the handler, or an {action}-pre
+	// $.actions('a', null) also removes data-action ?
+
 	// Simply a shortcut for $('body').actions()
 	var $actions = $.actions = function(arg, arg2){
 		return $('body').actions(arg, arg2);
@@ -103,10 +106,5 @@
 				button.trigger(action, args);
 			}
 		}
-
-		// TODOs:
-		// maybe event {action} can preventDefault the handler, or an {action}-pre
-		// $.actions('a', null) also removes data-action ?
 	}
-
 })( jQuery );

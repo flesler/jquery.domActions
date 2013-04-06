@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>jQuery.domActions - Action context</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+  <script type="text/javascript" src="../jquery.domActions.js"></script>
+</head>
+<body>
+  <h1>Handle actions only within a certain element</h1>
+  <ul id="buttons">
+    <li><div data-action="say/hi">Say hi</div></li>
+    <li><div data-action="say/ho">Say ho</div></li>
+  </ul>
+  <div data-action="say/no">Say no</div>
+
+  <script type="text/javascript">
+  $('#buttons').actions('say', function(msg) {
+    alert(msg);
+  });
+  </script>
+</body>
+</html>

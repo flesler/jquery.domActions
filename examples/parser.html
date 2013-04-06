@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>jQuery.domActions - Custom parser</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+  <script type="text/javascript" src="../jquery.domActions.js"></script>
+</head>
+<body>
+  <h1>Custom parser for action strings</h1>
+  <div data-action="say(hi,you)">Say two things</div>
+  <div id="sayOtherTwoThings">Say other two things</div>
+
+  <script type="text/javascript">
+  $.actions.toActionString = function(action, args) {
+    return action + '(' + args.join(',') + ')';
+  };
+
+  $.actions.parseAction = function(str) {
+    var m = str.match(/^(\w+)\((.*)\)$/);
+    return [m[1]].concat(m[2].split(','));
+  };
+
+  $.actions('say', function(msg, msg2){
+    alert(msg);
+    alert(msg2);
+  });
+
+  $('#sayOtherTwoThings').actions('say', ['other', 'things']);
+  </script>
+</body>
+</html>
