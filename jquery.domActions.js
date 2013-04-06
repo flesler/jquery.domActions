@@ -1,6 +1,6 @@
 /*!
  * jQuery.domActions
- * Copyright (c) 2013 Ariel Flesler - aflesler(at)gmail(dot)com | http://flesler.blogspot.com
+ * Copyright (c) 2013 Ariel Flesler - aflesler(at)gmail(dot)com
  * Dual licensed under MIT and GPL.
  * https://github.com/flesler/jquery.domActions
  * @author Ariel Flesler
@@ -49,7 +49,8 @@
 				// (string) -> Set action, no arguments
 				// (string, Array) -> Set action with arguments
 				arg2 = $.makeArray(arg2);
-				return this.attr($actions.attr, $actions.toActionString(arg, arg2));
+				action = arg ? $actions.toActionString(arg, arg2) : '';
+				return this.attr($actions.attr, action);
 			}
 		}
 
