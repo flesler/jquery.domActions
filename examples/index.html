@@ -2,20 +2,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-  <title>jQuery.domActions</title>
+  <title>jQuery.domActions - Example Loader</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+  <style type="text/css">
+  iframe {
+    position: absolute;
+    top: 0px;
+    left: 200px;
+    width: 540px;
+    height: 100%;
+    border:none;
+  }
+  </style>
 </head>
 <body>
   <h1>Examples</h1>
-  <ul>
-    <li><a href="single-action.html" target="_blank">single-action.html</a></li>
-    <li><a href="action-map.html" target="_blank">action-map.html</a></li>
-    <li><a href="context.html" target="_blank">context.html</a></li>
-    <li><a href="chaining.html" target="_blank">chaining.html</a></li>
-    <li><a href="handler.html" target="_blank">handler.html</a></li>
-    <li><a href="set-actions.html" target="_blank">set-actions.html</a></li>
-    <li><a href="parser.html" target="_blank">parser.html</a></li>
-    <li><a href="turn-on-off.html" target="_blank">turn-on-off.html</a></li>
-    <li><a href="async.html" target="_blank">async.html</a></li>
-  </ul>
+  <ul></ul>
+  <iframe id="iframe"></iframe>
+
+  <script type="text/javascript">
+  var demos = ['single-action', 'action-map', 'context', 'chaining', 'handler', 'set-actions', 'parser', 'turn-on-off', 'async'];
+
+  $.each(demos, function(i, demo) {
+    demo += '.html';
+    var link = $('<a>').text(demo).attr('href', demo).attr('target', '_blank');
+    link.click(function(e){
+      if (e.which !== 1) return;
+
+      e.preventDefault();
+      $('iframe').attr('src', demo);
+    });
+    $('<li>').append(link).appendTo('ul');
+  });
+  </script>
 </body>
 </html>
