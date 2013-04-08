@@ -1,6 +1,6 @@
 /*!
  * jQuery.domActions
- * Copyright (c) 2013 Ariel Flesler - aflesler(at)gmail(dot)com
+ * Copyright (c) 2013 Ariel Flesler - aflesler<a>gmail<d>com
  * Dual licensed under MIT and GPL.
  * https://github.com/flesler/jquery.domActions
  * @author Ariel Flesler
