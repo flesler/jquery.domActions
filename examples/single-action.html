@@ -6,10 +6,12 @@
   <link type="text/css" rel="stylesheet" href="css/style.css" />
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
   <script type="text/javascript" src="../jquery.domActions.js"></script>
+  <script type="text/javascript" src="js/code.js"></script>
 </head>
 <body>
   <h1>Handle HTML actions one by one</h1>
   <div data-action="say/hi">Say Hi</div>
+  
   <script type="text/javascript">
   $.actions('say', function(msg){
     alert(msg);
