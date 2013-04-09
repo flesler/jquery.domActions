@@ -17,6 +17,5 @@ Now anywhere on the html we can add the following to a div and when clicked, it 
 &lt;div data-action="say/hi">Say Hi&lt;/div>
 </pre>
 
-I'm currently working on the documentation so check all the [examples](https://github.com/flesler/jquery.domActions/tree/master/examples/) to see it in action.
-You can view the examples live [here](http://htmlpreview.github.io/?https://github.com/flesler/jquery.domActions/blob/master/examples/index.html).
-Any input is appreciated (create [an issue](https://github.com/flesler/jquery.domActions/issues/new)).
+I'm currently working on the documentation so check all the [examples](https://github.com/flesler/jquery.domActions/tree/master/examples/) to see it in action. You can test them [LIVE](http://htmlpreview.github.io/?https://github.com/flesler/jquery.domActions/blob/master/examples/index.html).<br />
+Any input is appreciated, create [an issue](https://github.com/flesler/jquery.domActions/issues/new) and tell me what you think.
