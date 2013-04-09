@@ -12,7 +12,7 @@ $('body').actions('say', function(msg){
 </pre>
 
 We define an action "say" and provide a function that handles it. It expects one argument.
-Now anywhere on the html we can add the following to a div and when clicked, it will trigger this function.
+Now anywhere on the html we can add the following to an element and when clicked, it will trigger this function.
 <pre>
 &lt;body>
 	&lt;div data-action="say/hi">Say Hi&lt;/div>
