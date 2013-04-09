@@ -30,7 +30,7 @@
       if (e.which !== 1) return;
 
       e.preventDefault();
-      $('iframe').attr('src', demo);
+      $('iframe').attr('src', link.prop('href'));
     });
     $('<li>').append(link).appendTo('ul');
   });
