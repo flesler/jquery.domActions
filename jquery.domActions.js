@@ -91,21 +91,15 @@
 			button.trigger(action+'-end', arguments);
 		});
 
-		var handler = $.data(this, 'actions.'+action);
-		if (handler) {
-			if (handler.apply(null, args) !== false) {
-				e.stopPropagation();
-				button.trigger(action, args);
-			}
-			return;
-		}
+		var handler = $.data(this, 'actions.'+action),
+			allHandler = $.data(this, 'actions._handler');
 
-		handler = $.data(this, 'actions._handler');
-		if (handler) {
-			if (handler(action, args) !== false) {
-				e.stopPropagation();
-				button.trigger(action, args);
-			}
+		if (handler && handler.apply(null, args) !== false ||
+			// The generic handler only runs if there's no action
+			allHandler && allHandler(action, args) !== false) {
+			// The event triggers only if a handler ran and didn't return false
+			e.stopPropagation();
+			button.trigger(action, args);
 		}
 	}
 })( jQuery );
