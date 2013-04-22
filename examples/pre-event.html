@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>jQuery.domActions - Pre Event</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+  <script type="text/javascript" src="../jquery.domActions.js"></script>
+  <script type="text/javascript" src="js/view-source.js"></script>
+</head>
+<body>
+  <h1>Event before each action, can prevent it</h1>
+  <div data-action="say/hi">Say Hi</div>
+  
+  <script type="text/javascript">
+  $.actions('say', function(msg){
+    alert(msg);
+  });
+
+  $('div').bind('say-pre', function(e, msg) {
+    e.preventDefault();
+    alert('I refuse to say ' + msg);
+  });
+  </script>
+</body>
+</html>

@@ -8,9 +8,6 @@
  */
 ;(function( $ ){
 	
-	// TODOs:
-	// maybe event {action} can preventDefault the handler, or an {action}-pre
-
 	// Simply a shortcut for $('body').actions()
 	var $actions = $.actions = function(arg, arg2){
 		return $('body').actions(arg, arg2);
@@ -86,6 +83,14 @@
 
 		var args = $actions.parseAction(value);
 		var action = args.shift();
+
+		// Trigger a -pre event that allows cancelling the action
+		var event = $.Event(action+'-pre');
+		button.trigger(event, args);
+		if (event.isDefaultPrevented()) {
+			return;
+		}
+
 		args.push(function(){
 			button.trigger(action+'-end', arguments);
 		});
