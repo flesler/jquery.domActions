@@ -10,7 +10,6 @@
 	
 	// TODOs:
 	// maybe event {action} can preventDefault the handler, or an {action}-pre
-	// $.actions('a', null) also removes data-action ?
 
 	// Simply a shortcut for $('body').actions()
 	var $actions = $.actions = function(arg, arg2){
